@@ -1,0 +1,34 @@
+﻿<Window x:Class="ToDoList.View.AddSupplierView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDoList.View"
+        mc:Ignorable="d"
+        Title="AddSupplierView" Height="158.312" Width="300" DataContext="{Binding SupMain, Mode=OneWay, Source={StaticResource Locator}}" WindowStyle="ToolWindow">
+    <Grid>
+        <StackPanel Margin="0,0,176,0" >
+            <Label Content="Name"
+                   HorizontalAlignment="Right"
+                   Height="26"/>
+            <Label Content="Description"
+                   HorizontalAlignment="Right"
+                   Height="26"/>
+            <Label Content="Location"
+                   HorizontalAlignment="Right"
+                   Height="26"/>
+            <Button Content="Cancel" Command="{Binding SupMain.CloseAddSupplierViewCommand, Source={StaticResource Locator}}"/>
+        </StackPanel>
+        <StackPanel  VerticalAlignment="Top" Margin="116,0,0,0">
+            <TextBox Height="26"
+                Text="{Binding SupMain.Supp.Name, Source={StaticResource Locator}}"/>
+            <TextBox Height="26"
+                Text="{Binding SupMain.Supp.Description, Source={StaticResource Locator}}"/>
+            <TextBox Height="26"
+                Text="{Binding SupMain.Supp.Location, Source={StaticResource Locator}}"/>
+
+        </StackPanel>
+        <Button Content="Save"  Command="{Binding AddSupplierCommand}" Margin="121,86,0,10"/>
+
+    </Grid>
+</Window>

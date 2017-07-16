@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ToDoDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CategoryItem">
+    <Key>
+      <PropertyRef Name="CategoryItemId" />
+    </Key>
+    <Property Name="CategoryItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Items" Relationship="Self.FK_Item_CategoryItem" FromRole="CategoryItem" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="QuantityPerItem" Type="Int32" />
+    <Property Name="CategoryItemId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CategoryItem" Relationship="Self.FK_Item_CategoryItem" FromRole="Item" ToRole="CategoryItem" />
+    <NavigationProperty Name="ItemLists" Relationship="Self.FK_ItemList_Item" FromRole="Item" ToRole="ItemList" />
+  </EntityType>
+  <EntityType Name="ItemList">
+    <Key>
+      <PropertyRef Name="ListItemId" />
+    </Key>
+    <Property Name="ListItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateAdded" Type="DateTime" Precision="3" />
+    <Property Name="DateDue" Type="DateTime" Precision="3" />
+    <Property Name="AmountItem" Type="Int32" />
+    <Property Name="PricePerItem" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="SupplierId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="Self.FK_ItemList_Item" FromRole="ItemList" ToRole="Item" />
+    <NavigationProperty Name="Suppliier" Relationship="Self.FK_ItemList_Suppliier" FromRole="ItemList" ToRole="Suppliier" />
+  </EntityType>
+  <EntityType Name="Suppliier">
+    <Key>
+      <PropertyRef Name="SupplierId" />
+    </Key>
+    <Property Name="SupplierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ItemLists" Relationship="Self.FK_ItemList_Suppliier" FromRole="Suppliier" ToRole="ItemList" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Item_CategoryItem">
+    <End Role="CategoryItem" Type="Self.CategoryItem" Multiplicity="1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryItem">
+        <PropertyRef Name="CategoryItemId" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="CategoryItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemList_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="ItemList" Type="Self.ItemList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="ItemList">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemList_Suppliier">
+    <End Role="Suppliier" Type="Self.Suppliier" Multiplicity="1" />
+    <End Role="ItemList" Type="Self.ItemList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="ItemList">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ToDoDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CategoryItems" EntityType="Self.CategoryItem" />
+    <EntitySet Name="Items" EntityType="Self.Item" />
+    <EntitySet Name="ItemLists" EntityType="Self.ItemList" />
+    <EntitySet Name="Suppliiers" EntityType="Self.Suppliier" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Item_CategoryItem" Association="Self.FK_Item_CategoryItem">
+      <End Role="CategoryItem" EntitySet="CategoryItems" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemList_Item" Association="Self.FK_ItemList_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="ItemList" EntitySet="ItemLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemList_Suppliier" Association="Self.FK_ItemList_Suppliier">
+      <End Role="Suppliier" EntitySet="Suppliiers" />
+      <End Role="ItemList" EntitySet="ItemLists" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
