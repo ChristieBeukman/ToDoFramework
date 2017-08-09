@@ -3,28 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:mvvm="http://www.galasoft.ch/mvvmlight"
              xmlns:local="clr-namespace:ToDoList.View"
-             mc:Ignorable="d" d:DesignWidth="300" DataContext="{Binding SupMain, Mode=OneWay, Source={StaticResource Locator}}" Height="151.134">
+             mc:Ignorable="d" d:DesignWidth="300" DataContext="{Binding SupMain, Mode=OneWay, Source={StaticResource Locator}}" Height="193.134">
     <Grid>
-        <StackPanel Margin="0,0,168,-17" >
+        <StackPanel Margin="0,0,168,74" >
             <Label Content="Name" HorizontalAlignment="Right"/>
             <Label Content="Description" HorizontalAlignment="Right"/>
             <Label Content="Location" HorizontalAlignment="Right"/>
-            <Button Content="Delete" Command="{Binding SupMain.DeleteSupplierCommand, Source={StaticResource Locator}}"/>
         </StackPanel>
-        <StackPanel Margin="137,0,0,0">
+        <StackPanel Margin="137,0,0,74">
             <ComboBox Height="26"
                 SelectedIndex="0"
                       DisplayMemberPath="Name"
-                      ItemsSource="{Binding SupMain.Suppliers, Source={StaticResource Locator}}" SelectedItem="{Binding SelectedSupplier}"
+                      ItemsSource="{Binding SupMain.Suppliers, Mode=TwoWay, NotifyOnSourceUpdated=True, Source={StaticResource Locator}, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedSupplier}"
                       />
             <TextBox Height="26"
                 Text="{Binding SupMain.SelectedSupplier.Description, Source={StaticResource Locator}}"/>
             <TextBox Height="26"
                 Text="{Binding SupMain.SelectedSupplier.Location, Source={StaticResource Locator}}"/>
             <Button Content="Add" Command="{Binding SupMain.LoadAddSupplierViewCommand, Source={StaticResource Locator}}"/>
+            <Button Content="Delete" Command="{Binding SupMain.DeleteSupplierCommand, Source={StaticResource Locator}}"/>
+
         </StackPanel>
-        
+
+        <TextBlock TextAlignment="Right" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Supplier Name" Margin="0,124,168,44" Width="80" />
+        <TextBox Height="26" 
+                 Margin="137,124,0,43" Text="{Binding SupMain.SupplierName, Mode=OneWay, Source={StaticResource Locator}, UpdateSourceTrigger=PropertyChanged}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="TextChanged">
+                    <mvvm:EventToCommand Command="{Binding SearchCommand,Mode=OneWay}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+
+        </TextBox>
+
 
     </Grid>
 </UserControl>

@@ -5,6 +5,7 @@ using ToDoList.Services;
 using ToDoList.Model;
 using System.Windows;
 using ToDoList.View;
+using System.Linq;
 
 namespace ToDoList.ViewModel
 {
@@ -15,6 +16,7 @@ namespace ToDoList.ViewModel
         private ObservableCollection<Suppliier> _Suppliers;
         private Suppliier _Supplier;
         private Suppliier _SelectedSupplier;
+        private string _SupplierName;
 
         public ObservableCollection<Suppliier> Suppliers
         {
@@ -57,13 +59,28 @@ namespace ToDoList.ViewModel
                 RaisePropertyChanged("SelectedSupplier");
             }
         }
-#endregion
 
-#region Commands
+        public string SupplierName
+        {
+            get
+            {
+                return _SupplierName;
+            }
+
+            set
+            {
+                _SupplierName = value;
+                RaisePropertyChanged("SupplierName");
+            }
+        }
+        #endregion
+
+        #region Commands
         public RelayCommand AddSupplierCommand { get; set; }
         public RelayCommand LoadAddSupplierViewCommand { get; set; }
         public RelayCommand CloseAddSupplierViewCommand { get; set; }
         public RelayCommand DeleteSupplierCommand { get; set; }
+        public RelayCommand SearchCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -80,6 +97,7 @@ namespace ToDoList.ViewModel
             LoadAddSupplierViewCommand = new RelayCommand(LoadAddSupplierView);
             CloseAddSupplierViewCommand = new RelayCommand(CloseCurrentView);
             DeleteSupplierCommand = new RelayCommand(DeleteSelectedSupplier);
+            SearchCommand = new RelayCommand(SearchSupplier);
         }
         #endregion
 
@@ -95,10 +113,19 @@ namespace ToDoList.ViewModel
 
         void AddSupplier()
         {
-            Suppliers.Add(Supp);
-            _ServiceProxy.CreateSupplier(Supp);
-            RaisePropertyChanged("Supp");
-            MessageBox.Show(Supp.Name + " has been Saved");
+           
+            switch (MessageBox.Show("Save " + Supp.Name,"Save Record",MessageBoxButton.YesNo))
+            {
+                case MessageBoxResult.Yes:
+                    Suppliers.Add(Supp);
+                    _ServiceProxy.CreateSupplier(Supp);
+                    RaisePropertyChanged("Supp");
+                    MessageBox.Show(Supp.Name + " has been Saved");
+                    break;
+                default:
+                    break;
+            }
+            //Supp.Equals(null);
             CloseCurrentView();
         }
 
@@ -129,6 +156,18 @@ namespace ToDoList.ViewModel
             GetSuppliers();
             RaisePropertyChanged("SelectedSupplier");
             RaisePropertyChanged("Suppliers");
+        }
+
+        void SearchSupplier()
+        {
+            Suppliers.Clear();
+            var Result = from e in _ServiceProxy.GetSupplierDataAccess()
+                         where e.Name.StartsWith(SupplierName)
+                         select e;
+            foreach (var item in Result)
+            {
+                Suppliers.Add(item);
+            }
         }
         #endregion
     }

@@ -36,3 +36,40 @@ D:\Documents\Personal Projects\TodoList\ToDoList\ToDoList\obj\Debug\ToDoList_Con
 D:\Documents\Personal Projects\TodoList\ToDoList\ToDoList\obj\Debug\View\AddSupplierView.g.cs
 D:\Documents\Personal Projects\TodoList\ToDoList\ToDoList\obj\Debug\View\AddSupplierView.baml
 D:\Documents\Personal Projects\TodoList\ToDoList\ToDoList\obj\Debug\ToDoList.csprojResolveAssemblyReference.cache
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\ToDoList.exe.config
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\ToDoList.exe
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\ToDoList.pdb
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\EntityFramework.dll
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\EntityFramework.xml
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\View\AddSupplierView.g.cs
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\View\MainWindow.g.cs
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\View\SupplierView.g.cs
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\App.g.cs
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\ToDoList_Content.g.cs
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\ToDoList_MarkupCompile.cache
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\ToDoList_MarkupCompile.lref
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\App.baml
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\View\AddSupplierView.baml
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\View\MainWindow.baml
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\View\SupplierView.baml
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\ToDoList.g.resources
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\ToDoList.Properties.Resources.resources
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\ToDoList.csproj.GenerateResource.Cache
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\ToDoList.exe
+C:\Users\Christie\Source\Repos\ToDoFramework\ToDoList\ToDoList\obj\Debug\ToDoList.pdb

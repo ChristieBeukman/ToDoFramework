@@ -16,8 +16,8 @@
                    Height="26"/>
             <Label Content="Location"
                    HorizontalAlignment="Right"
-                   Height="26"/>
-            <Button Content="Cancel" Command="{Binding SupMain.CloseAddSupplierViewCommand, Source={StaticResource Locator}}"/>
+                   Height="33"/>
+            <Button Margin="2,2,2,2" Content="Cancel" Command="{Binding SupMain.CloseAddSupplierViewCommand, Source={StaticResource Locator}}" Height="30"/>
         </StackPanel>
         <StackPanel  VerticalAlignment="Top" Margin="116,0,0,0">
             <TextBox Height="26"
