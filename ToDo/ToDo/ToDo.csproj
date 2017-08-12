@@ -177,7 +177,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\WPF.MDI\WPF.MDI.csproj">
+      <Project>{be1ed569-5e0b-4df0-8964-33ad2aae4c4a}</Project>
+      <Name>WPF.MDI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Model\ToDoModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
