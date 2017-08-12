@@ -115,6 +115,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Resources\ComboToggleButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Resources\GlassButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
