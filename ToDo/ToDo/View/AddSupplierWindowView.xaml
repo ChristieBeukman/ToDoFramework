@@ -1,0 +1,16 @@
+﻿<Window x:Class="ToDo.View.AddSupplierWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDo.View"
+        mc:Ignorable="d"
+        Title="AddSupplierWindowView" Height="227" Width="299">
+    <Grid Height="267" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="205*"/>
+            <ColumnDefinition Width="87*"/>
+        </Grid.ColumnDefinitions>
+        <local:AddSupplierView HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Margin="5,-10,-18,72"/>
+    </Grid>
+</Window>
