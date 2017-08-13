@@ -33,6 +33,7 @@ namespace ToDo.ViewModel
         string SupDescription;
         int SupID;
         string supLocation;
+        private Suppliier _OldSupplier;
 
 
         #endregion Private
@@ -195,6 +196,20 @@ namespace ToDo.ViewModel
             }
         }
 
+        public Suppliier OldSupplier
+        {
+            get
+            {
+                return _OldSupplier;
+            }
+
+            set
+            {
+                _OldSupplier = value;
+                RaisePropertyChanged("OldSupplier");
+            }
+        }
+
         #endregion Public
 
         #region Commands
@@ -203,6 +218,7 @@ namespace ToDo.ViewModel
         public RelayCommand OpenAddSupplierView { get; set; }
         public RelayCommand DeleteSupplierCommand { get; set; }
         public RelayCommand ControlActivatorCommand { get; set; }
+        public RelayCommand UpdateSupplierCommand { get; set; }
 
 
         #endregion
@@ -221,16 +237,21 @@ namespace ToDo.ViewModel
             SelectedSupplier = new Suppliier();
             GetSupplier();
             Sup = new Suppliier();
+            OldSupplier = new Suppliier();
             AddSupplierCommand = new RelayCommand(AddSupplier);
             OpenAddSupplierView = new RelayCommand(OpenAddSupplierWindow);
             DeleteSupplierCommand = new RelayCommand(DeleteSupplier);
             ControlActivatorCommand = new RelayCommand(ToggleControl);
+            UpdateSupplierCommand = new RelayCommand(UpdateSupplier);
         }
 
         #endregion Constructor
 
 #region Methods
 
+        /// <summary>
+        /// disables text readonly and hides combobox
+        /// </summary>
         void ToggleControl()
         {
             if (VisibleCOntrolEnabled == false)
@@ -291,6 +312,9 @@ namespace ToDo.ViewModel
             win.ShowDialog();
         }
 
+        /// <summary>
+        /// delete selected record
+        /// </summary>
         void DeleteSupplier()
         {
             var Result = MessageBox.Show("Delete " + SelectedSupplier.Name, "DELETE", MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -311,6 +335,25 @@ namespace ToDo.ViewModel
                     break;
             }
            
+        }
+
+        void UpdateSupplier()
+        {
+            if (SelectedSupplier != null)
+            {
+
+                Suppliers.Add(SelectedSupplier);
+                OldSupplier.Description = SupDescription;
+                OldSupplier.Name = SupLocation;
+                OldSupplier.Location = SupLocation;
+                OldSupplier.SupplierId = SupID;
+                Suppliers.Remove(OldSupplier);
+                _ServiceProxy.UpdateSupplier(SelectedSupplier,OldSupplier);
+                GetSupplier();
+                MessageBox.Show("Updated");
+                RaisePropertyChanged("SelectedSupplier");
+                ToggleControl();
+            }
         }
 #endregion Constructor
 

@@ -13,6 +13,6 @@ namespace ToDo.Services
         ObservableCollection<Suppliier> GetSuppliers();
         void CreateSupplier(Suppliier Sup);
         void DeleteSupplier(Suppliier Sup);
-        void UpdateSupplier(Suppliier OldSup, Suppliier NewSup);
+        void UpdateSupplier(Suppliier NewSup, Suppliier OldSup);
     }
 }

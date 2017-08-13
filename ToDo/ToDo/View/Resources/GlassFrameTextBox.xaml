@@ -32,7 +32,7 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Frame" Property="Stroke" Value="White"/>
                         </Trigger>
-                        <Trigger Property="IsEnabled" Value="False">
+                        <Trigger Property="IsReadOnly" Value="False">
                             <Setter TargetName="txtborder" Property="Background" Value="Black"/>
                             <Setter TargetName="txtborder" Property="BorderThickness" Value="1"/>
                         </Trigger>

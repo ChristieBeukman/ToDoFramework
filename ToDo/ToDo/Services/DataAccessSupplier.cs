@@ -42,12 +42,12 @@ namespace ToDo.Services
             return Suppliers;
         }
 
-        public void UpdateSupplier(Suppliier OldSup, Suppliier NewSup)
+        public void UpdateSupplier(Suppliier NewSup, Suppliier OldSup)
         {
             if (NewSup != null)
             {
                 var v = from c in cxt.Suppliiers
-                        where c.Name == NewSup.Name
+                        where c.SupplierId == NewSup.SupplierId
                         select c;
                 cxt.Entry(NewSup).State = System.Data.Entity.EntityState.Modified;
                 cxt.SaveChanges();

@@ -66,8 +66,7 @@
                         Height="30" 
                         VerticalAlignment="Center" 
                         HorizontalAlignment="Left"
-                        Width="129"
-                        IsEnabled="{Binding SupplierVM.ControlIsReadOnly, Source={StaticResource Locator}}" Grid.Column="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="14" FontWeight="Normal" Margin="1,6,0,5" BorderBrush="White" >
+                        Width="129" Grid.Column="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="14" FontWeight="Normal" Margin="1,6,0,5" BorderBrush="White" IsReadOnly="{Binding ControlIsReadOnly}" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseDoubleClick">
                                 <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding SupplierVM.ControlActivatorCommand, Source={StaticResource Locator}}"/>
@@ -106,8 +105,7 @@
                         Height="30" 
                         VerticalAlignment="Center" 
                         HorizontalAlignment="Left"
-                        Width="129"
-                        IsEnabled="{Binding SupplierVM.ControlIsReadOnly, Source={StaticResource Locator}}" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="14" FontWeight="Normal" Margin="0,0,0,-5" BorderBrush="White" IsReadOnly="True">
+                        Width="129" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="14" FontWeight="Normal" Margin="0,0,0,-5" BorderBrush="White" IsReadOnly="{Binding SupplierVM.ControlIsReadOnly, Source={StaticResource Locator}}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseDoubleClick">
                                 <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding SupplierVM.ControlActivatorCommand, Source={StaticResource Locator}}"/>
@@ -119,8 +117,7 @@
                         Foreground="#FFF9F7F7" 
                         Height="30"
                         VerticalAlignment="Center"
-                        Width="130"
-                        IsEnabled="{Binding SupplierVM.ControlIsReadOnly, Source={StaticResource Locator}}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="14" FontWeight="Normal" IsReadOnly="True">
+                        Width="130" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="14" FontWeight="Normal" IsReadOnly="{Binding ControlIsReadOnly}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseDoubleClick">
                                 <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding SupplierVM.ControlActivatorCommand, Source={StaticResource Locator}}"/>
@@ -166,7 +163,7 @@
                     Height="35"
                     Width="35"
                     Style="{DynamicResource GlassButton}" 
-                    Margin="23,0,118,0" Foreground="White" VerticalAlignment="Top" Command="{Binding SupplierVM.ControlActivatorCommand, Source={StaticResource Locator}}" Visibility="{Binding SupplierVM.HiddenControlEnabled, Converter={StaticResource BooleanToVisibilityConverter}, Source={StaticResource Locator}}" Background="#FF00F90B"/>
+                    Margin="23,0,118,0" Foreground="White" VerticalAlignment="Top" Command="{Binding SupplierVM.UpdateSupplierCommand, Source={StaticResource Locator}}" Visibility="{Binding SupplierVM.HiddenControlEnabled, Converter={StaticResource BooleanToVisibilityConverter}, Source={StaticResource Locator}}" Background="#FF00F90B"/>
             </Grid>
         </GroupBox>
     </Grid>
