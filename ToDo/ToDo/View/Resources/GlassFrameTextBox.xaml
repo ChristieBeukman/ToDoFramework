@@ -21,7 +21,11 @@
                         </Rectangle>
                         <Border x:Name="txtborder" Background="#00FFFFFF" OpacityMask="Black" BorderBrush="White" UseLayoutRounding="False" VerticalAlignment="Center" BorderThickness="0">
 
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Margin="9,4,8,4" FontWeight="ExtraBold" Foreground="#FFFBFAFA" HorizontalAlignment="Stretch" Width="Auto" Background="#FF111111" IsEnabled="False"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Margin="9,4,8,4" FontWeight="ExtraBold" Foreground="#FFFBFAFA" HorizontalAlignment="Stretch" Width="Auto" IsEnabled="False">
+                                <ScrollViewer.Effect>
+                                    <DropShadowEffect BlurRadius="0" ShadowDepth="1"/>
+                                </ScrollViewer.Effect>
+                            </ScrollViewer>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
