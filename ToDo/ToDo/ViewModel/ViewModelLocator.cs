@@ -18,13 +18,14 @@ namespace ToDo.ViewModel
         /// </summary>
         public ViewModelLocator()
         {
-            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
-          
+            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);         
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<SupplierViewModel>();
             SimpleIoc.Default.Register<IDataAccessSupplier,DataAccessSupplier>();
+            SimpleIoc.Default.Register<CategoryViewModel>();
+            SimpleIoc.Default.Register<IDataAccesCategory, DataAccessCategoryItem>();
+
         }
 
         public MainViewModel Main
@@ -32,6 +33,14 @@ namespace ToDo.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public CategoryViewModel CategoryVM
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<CategoryViewModel>();
             }
         }
 
