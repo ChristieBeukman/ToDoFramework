@@ -19,14 +19,18 @@
                                 </LinearGradientBrush>
                             </Rectangle.Stroke>
                         </Rectangle>
-                        <Border>
+                        <Border x:Name="txtborder" Background="#00FFFFFF" OpacityMask="Black" BorderBrush="White" UseLayoutRounding="False" VerticalAlignment="Center" BorderThickness="0">
 
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10,3.52" FontWeight="ExtraBold" Foreground="#FFFBFAFA" HorizontalAlignment="Right"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Margin="9,4,8,4" FontWeight="ExtraBold" Foreground="#FFFBFAFA" HorizontalAlignment="Stretch" Width="Auto" Background="#FF111111" IsEnabled="False"/>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Frame" Property="Stroke" Value="White"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="txtborder" Property="Background" Value="Black"/>
+                            <Setter TargetName="txtborder" Property="BorderThickness" Value="1"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

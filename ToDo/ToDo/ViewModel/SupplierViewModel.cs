@@ -26,11 +26,18 @@ namespace ToDo.ViewModel
         private Suppliier _Supplier;
         private Suppliier _SelectedSupplier;
         private Suppliier _Sup;
+        private bool controlIsReadOnly = true;
+        private bool hiddenControlEnabled = false;
+        private bool visibleCOntrolEnabled = true;
+        string catName;
+        string SupDescription;
+        int SupID;
+        string supLocation;
 
 
         #endregion Private
 
- #region Public
+        #region Public
         /// <summary>
         /// Public Properties
         /// </summary>
@@ -90,14 +97,114 @@ namespace ToDo.ViewModel
             }
         }
 
+        public string SupName
+        {
+            get
+            {
+                return catName;
+            }
+
+            set
+            {
+                catName = value;
+                RaisePropertyChanged("CatName");
+            }
+        }
+
+        public string CatDescription
+        {
+            get
+            {
+                return SupDescription;
+            }
+
+            set
+            {
+                SupDescription = value;
+                RaisePropertyChanged("CatDescription");
+            }
+        }
+
+        public int CatID
+        {
+            get
+            {
+                return SupID;
+            }
+
+            set
+            {
+                SupID = value;
+                RaisePropertyChanged("CatID");
+            }
+        }
+
+        public bool ControlIsReadOnly
+        {
+            get
+            {
+                return controlIsReadOnly;
+            }
+
+            set
+            {
+                controlIsReadOnly = value;
+                RaisePropertyChanged("ControlIsReadOnly");
+            }
+        }
+
+        public bool HiddenControlEnabled
+        {
+            get
+            {
+                return hiddenControlEnabled;
+            }
+
+            set
+            {
+                hiddenControlEnabled = value;
+                RaisePropertyChanged("HiddenControlEnabled");
+            }
+        }
+
+        public bool VisibleCOntrolEnabled
+        {
+            get
+            {
+                return visibleCOntrolEnabled;
+            }
+
+            set
+            {
+                visibleCOntrolEnabled = value;
+                RaisePropertyChanged("VisibleCOntrolEnabled");
+            }
+        }
+
+        public string SupLocation
+        {
+            get
+            {
+                return supLocation;
+            }
+
+            set
+            {
+                supLocation = value;
+                RaisePropertyChanged("SUpLocation");
+            }
+        }
 
         #endregion Public
 
-#region Commands
+        #region Commands
 
         public RelayCommand AddSupplierCommand { get; set; }
         public RelayCommand OpenAddSupplierView { get; set; }
         public RelayCommand DeleteSupplierCommand { get; set; }
+        public RelayCommand ControlActivatorCommand { get; set; }
+
+
         #endregion
         #endregion Properties
 
@@ -117,11 +224,41 @@ namespace ToDo.ViewModel
             AddSupplierCommand = new RelayCommand(AddSupplier);
             OpenAddSupplierView = new RelayCommand(OpenAddSupplierWindow);
             DeleteSupplierCommand = new RelayCommand(DeleteSupplier);
+            ControlActivatorCommand = new RelayCommand(ToggleControl);
         }
 
         #endregion Constructor
 
 #region Methods
+
+        void ToggleControl()
+        {
+            if (VisibleCOntrolEnabled == false)
+            {
+                ControlIsReadOnly = true;
+                HiddenControlEnabled = false;
+                VisibleCOntrolEnabled = true;
+            }
+            else if (VisibleCOntrolEnabled == true)
+            {
+                ControlIsReadOnly = false;
+                HiddenControlEnabled = true;
+                VisibleCOntrolEnabled = false;
+                
+                SupDescription = SelectedSupplier.Description;
+                SupName = SelectedSupplier.Name;
+                SupID = SelectedSupplier.SupplierId;
+                SupLocation = SelectedSupplier.Location;
+                RaisePropertyChanged("SupName");
+                RaisePropertyChanged("SupID");
+                RaisePropertyChanged("SupLocation");
+            }
+            RaisePropertyChanged("ControlIsReadOnly");
+            RaisePropertyChanged("HiddenControlEnabled");
+            RaisePropertyChanged("VisibleCOntrolEnabled");
+
+        }
+
         /// <summary>
         /// Fill the Combobox with the database data
         /// </summary>

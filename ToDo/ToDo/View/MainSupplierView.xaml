@@ -4,7 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ToDo.View"
-             xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="ToDo.View.MainSupplierView"
+             xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:GalaSoft_MvvmLight_Command="http://www.galasoft.ch/mvvmlight"
+             x:Class="ToDo.View.MainSupplierView"
              mc:Ignorable="d" Height="200" Width="255">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -317,8 +320,39 @@
                         </LinearGradientBrush>
                     </ComboBox.Background>
                 </ComboBox>
-                <TextBox Text="{Binding SupplierVM.SelectedSupplier.Description, Source={StaticResource Locator}}" Style="{DynamicResource GlassTextBox}" Foreground="#FFF9F7F7" Height="23" Margin="0,60,6,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="128" Grid.Column="2" IsEnabled="False"/>
-                <TextBox Text="{Binding SupplierVM.SelectedSupplier.Location, Source={StaticResource Locator}}" Style="{DynamicResource GlassTextBox}" Foreground="#FFF9F7F7" Height="23" Margin="0,88,6,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="128" Grid.Column="2"/>
+                <TextBox Text="{Binding SupplierVM.SelectedSupplier.Description, Source={StaticResource Locator}}"
+                         Style="{DynamicResource GlassTextBox}"
+                         Foreground="#FFF9F7F7" 
+                         Height="23" 
+                         Margin="0,60,6,0" 
+                         VerticalAlignment="Top" 
+                         HorizontalAlignment="Right"
+                         Width="128" 
+                         Grid.Column="2" 
+                         IsEnabled="{Binding SupplierVM.ControlIsReadOnly, Source={StaticResource Locator}}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding SupplierVM.ControlActivatorCommand, Source={StaticResource Locator}}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+
+                <TextBox Text="{Binding SupplierVM.SelectedSupplier.Location, Source={StaticResource Locator}}" 
+                         Style="{DynamicResource GlassTextBox}"
+                         Foreground="#FFF9F7F7" 
+                         Height="23"
+                         Margin="0,88,6,0"
+                         VerticalAlignment="Top" 
+                         HorizontalAlignment="Right"
+                         Width="128"
+                         Grid.Column="2" 
+                         IsEnabled="{Binding SupplierVM.ControlIsReadOnly, Source={StaticResource Locator}}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding SupplierVM.ControlActivatorCommand, Source={StaticResource Locator}}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
 
                 <Label Content="Name:" Grid.Column="1" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Foreground="White" Margin="0,25,0,70"/>
                 <Label Content="Description:" Grid.Column="1" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Foreground="White" Margin="0,60,0,42"  />
