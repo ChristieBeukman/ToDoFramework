@@ -106,16 +106,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ToDoModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Services\DataAccessCategoryItem.cs" />
     <Compile Include="Services\DataAccessSupplier.cs" />
+    <Compile Include="Services\IDataAccesCategory.cs" />
     <Compile Include="Services\IDataAccessSupplier.cs" />
+    <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SupplierViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Page Include="View\AddCategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddCategoryWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddSupplierView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddSupplierWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainCategoryItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,11 +154,20 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\AddCategoryView.xaml.cs">
+      <DependentUpon>AddCategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddCategoryWindowView.xaml.cs">
+      <DependentUpon>AddCategoryWindowView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddSupplierView.xaml.cs">
       <DependentUpon>AddSupplierView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddSupplierWindowView.xaml.cs">
       <DependentUpon>AddSupplierWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainCategoryItemView.xaml.cs">
+      <DependentUpon>MainCategoryItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainSupplierView.xaml.cs">
       <DependentUpon>MainSupplierView.xaml</DependentUpon>
@@ -153,6 +177,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Resources\GlassFrameTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Resources\GroupBoxStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -22,6 +22,9 @@
             <MDI:MdiChild Background="#FF6C7578">
                 <local:MainSupplierView  HorizontalAlignment="Center" VerticalAlignment="Center" />
             </MDI:MdiChild>
+            <MDI:MdiChild Background="#FF6C7578">
+                <local:MainCategoryItemView/>
+            </MDI:MdiChild>
            
         </MDI:MdiContainer>
         
